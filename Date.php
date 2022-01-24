@@ -39,7 +39,7 @@ class Date
         break;
       case 'en':
         return "Месяц: " . date('M', strtotime($this->date));
-        
+
         break;
       default:
         return "Месяц: " . date('M', strtotime($this->date));
@@ -101,30 +101,29 @@ class Date
 
   public function subMonth($value)
   {
-    $this->date = date("m", strtotime($this->date)) - $value;
+    $this->date = (date("m", strtotime($this->date)) - $value);
     return $this;
   }
 
   public function addYear($value)
   {
-    $this->date = date("Y", strtotime($this->date)) + $value;
-    return $this;
+    $this->date = (date("Y", strtotime($this->date)) - $value);
+    return (int) $this->date;
   }
 
   public function subYear($value)
   {
-    $this->date = date("Y", strtotime($this->date)) - $value;
-    return $this;
+    $this->date = (date("Y", strtotime($this->date))) - $value;
+    return (int) $this->date;
+    
   }
 
   public function format()
   {
-    return date("d-m-Y", strtotime($this->date));
-   
   }
 
-  // public function __toString()
-  // {
-  //   // выведет дату в формате 'год-месяц-день'
-  // }
+  public function __toString()
+  {
+    return  date("d-m-Y", strtotime($this->date));
+  }
 }

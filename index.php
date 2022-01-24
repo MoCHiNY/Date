@@ -1,18 +1,12 @@
 <?php
 $arr = [
-  'Date.php',
+  'Date',
+  'Tag',
 ];
 
 foreach ($arr as $item) {
-  require_once ($item);
+  require_once($item . ".php");
 }
 
-$date = new Date ('2025-12-24');
-// echo $date->getDay()."<br>";
-// echo $date->getMonth('ru') . "<br>";
-// echo $date->getWeekDay('en') . "<br>";
-// echo $date->addDay(99) . "<br>";
-// $date->addDay(3). "<br>";
-echo (new Date('2025-12-31'))->addYear(0)->subYear(6);
-
-
+$tag = new Tag('div');
+echo $tag->open() . "Привіт". $tag->close();
